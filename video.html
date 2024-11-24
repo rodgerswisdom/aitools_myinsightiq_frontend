@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="./styles/home.css">
+    <title>AI Tools Hub</title>
+    <script src="./scripts/video.js"></script>
+    <script src="scripts/scripts.js"></script>
+</head>
+<body>
+    <nav class="container" id="h-nav">
+        <ul>
+            <li><a href="index.html" style="color: rgb(106, 103, 103);">Home of No-Code AI Tools</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">Video Demos</a></li>
+            <li><a href="https://myinsightiq.com/">myInsightIQ</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section>
+            <hgroup class="head">
+                <h1 style="font-size: 44px; font-weight: normal;">Boost traffic, leads, and sales With AI Tools!</h1>
+                <h2></h2>
+            </hgroup>
+            
+            <hgroup class="head">
+                <h2>Explore the Tools by Category</h2>
+            </hgroup>
+
+            <form method="get" id="main-form" action="filtered_video.html">
+                <div id="category-list" class="category-list"></div>
+                <div class="apply-filter-btn">
+                    <button id="filter_btn" type="submit">Apply Filter</button>
+                </div>
+            </form>
+
+            <div class="spacer2"></div>
+            <hr />
+
+            <hgroup class="head">
+                <h1 style="font-size: 44px; font-weight: normal;">Featured Tools</h1>
+                <h2><b id="c_count"></b> out of a total of <b id="count"></b> tools</h2>
+            </hgroup>
+            <div class="featured-tools-container" id="featured-tools-container" ></div>
+        </section>
+
+        <div class="apply-filter-btn">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXGiQBAVMQy3lXGkNdRwqgfWw20E_VlXODYloiMo7L3bwYCw/viewform?usp=sf_link" style="text-decoration: none;">
+                <button id="filter_btn" style="color: black; background-color: #ddd;">Contact Us</button>
+            </a>
+        </div>
+    </main>
+
+    <div class="footer">
+        <small>
+            <a href="https://www.umso.com/dpa">Privacy Policy</a> • <a href="#">Terms of Service</a>
+        </small>
+    </div>
+</body>
+</html>

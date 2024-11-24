@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="./styles/home.css">
+    <title> AI Tools Hub - filterd AI Tools</title>
+     <script src="./scripts/filtered_tools.js" defer></script> 
+     <script src="scripts/index.js"></script>
+     <script src="scripts/scripts.js"></script>
+</head>
+<body>
+    <nav class="container" id="h-nav">
+        <ul>
+            <li><a href="index.html" style="color: rgb(106, 103, 103);">Home of No-Code AI Tools</a></li>
+        </ul>
+        <ul>
+            <li><a href="./video.html">Video Demos</a></li>
+            <li><a href="https://myinsightiq.com/">myInsightIQ</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <hgroup class="head">
+            <h1 id="filtered-tool-header" style="font-size: 48px; font-weight: normal;">Featured Tools</h1>
+            <h2>
+                <b id="c_count" style="color: rgb(4, 161, 213);"></b>
+                out of a total of 
+                <b id="count" style="color: rgb(4, 161, 213);"></b> tools
+            </h2>
+        </hgroup>
+
+        <div class="tools-container">
+            <div class="featured-tools-container" id="filtered-tools-container"></div>
+        </div>
+
+        <div class="apply-filter-btn">
+            <a href="https://forms.gle/kT4cvWi76UwEu6A1A" style="text-decoration: none;">
+                <button id="filter_btn" style="color: black; background-color: #ddd;">Contact Us</button>
+            </a>
+        </div>
+    </main>
+
+    <div class="footer">
+        <small>
+            <a href="https://www.umso.com/dpa">Privacy Policy</a> • 
+            <a href="#">Terms of Service</a>
+        </small>
+    </div>
+</body>
+</html>
