@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
 
         // Fetch tools
-        const toolResponse = await fetch('https://tool-service.onrender.com/api/tools/');
+        const toolResponse = await fetch('https://tool-service.onrender.com/api/tools/?limit=100&offset=100');
         const tools = await toolResponse.json();
         const featuredToolsContainer = document.getElementById('featured-tools-container');
 
