@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function fetchTools(page) {
         const offset = (page - 1) * limit;
         try {
-            const toolResponse = await fetch(`http://0.0.0.0:8000/api/tools/?limit=${limit}&offset=${offset}`);
+            const toolResponse = await fetch(`https://tool-service.onrender.com/api/tools/?limit=${limit}&offset=${offset}`);
             const tools = await toolResponse.json();
 
             featuredToolsContainer.innerHTML = ''; // Clear previous tools
