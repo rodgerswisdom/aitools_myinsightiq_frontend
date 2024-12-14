@@ -24,13 +24,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         
 
         // Fetch tools
-        const toolResponse = await fetch('https://tool-service.onrender.com/api/tools/');
+        const toolResponse = await fetch('https://aitool-detail-service.vercel.app/api/tools/');
         const tools = await toolResponse.json();
         const featuredToolsContainer = document.getElementById('featured-tools-container');
 
 
-        cCount.textContent = tools.length;
-        count.textContent = tools.length;
+        cCount.textContent = 850+tools.length;
+        count.textContent = 850+tools.length;
 
 
         tools.forEach(tool => {
