@@ -1,13 +1,14 @@
-
 document.addEventListener('DOMContentLoaded', async () => {
     const categoryList = document.getElementById('category-list');
-    const featuredToolsContainer = document.getElementById('filtered-tools-container');
+    const featuredToolsContainer = document.getElementById('featured-tools-container');
+    const loadNextBtn = document.getElementById('load-next-btn')
     const cCount = document.getElementById('c_count');
     const count = document.getElementById('count');
 
-
+    let nextPageUrl = 'https://aitool-detail-service.vercel.app/api/tools/';
+    let totalLoadedTools = 0; 
     try {
-        // Fetch categories
+       
         const categoryResponse = await fetch('https://category-service-3t5x.onrender.com/api/categories/');
         const categories = await categoryResponse.json();
 
@@ -21,30 +22,67 @@ document.addEventListener('DOMContentLoaded', async () => {
             categoryList.appendChild(label);
         });
 
-        
+        /**
+         * Fetch tools and update the UI.
+         * @param {string} url - The API endpoint for fetching tools.
+         */
+        const fetchTools = async (url) => {
+            try {
+                const toolResponse = await fetch(url);
+                if (!toolResponse.ok) {
+                    throw new Error(`HTTP error! status: ${toolResponse.status}`);
+                }
 
-        // Fetch tools
-        const toolResponse = await fetch('https://aitool-detail-service.vercel.app/api/tools/');
-        const tools = await toolResponse.json();
-        const featuredToolsContainer = document.getElementById('featured-tools-container');
+                const toolsData = await toolResponse.json();
 
+                // Increment total loaded tools
+                totalLoadedTools += toolsData.results.length;
 
-        cCount.textContent = 850+tools.length;
-        count.textContent = 850+tools.length;
+                // Update total count and current count in the DOM
+                cCount.textContent = totalLoadedTools; 
+                /**
+                 * Total tools in the db
+                 */
+                count.textContent = toolsData.count; 
+                // Append tools to the container
+                toolsData.results.forEach(tool => {
+                    const a = document.createElement('a');
+                    a.href = `tool.html?id=${tool.id}`;
+                    const div = document.createElement('div');
+                    div.className = 'featured-tools-list-item';
+                    div.textContent = tool.name;
+                    a.appendChild(div);
+                    featuredToolsContainer.appendChild(a);
+                });
 
+                // Update the next page URL
+                nextPageUrl = toolsData.next; // API response will provide the next page URL or null
+            } catch (error) {
+                console.error('Error fetching tools:', error);
+            }
+        };
 
-        tools.forEach(tool => {
-        const a = document.createElement('a');
-        a.href = `tool.html?id=${tool.id}`;
-        const div = document.createElement('div');
-        div.className = 'featured-tools-list-item';
-        div.textContent = tool.name;
-        a.appendChild(div);
-        featuredToolsContainer.appendChild(a);
+        // Initial fetch for tools
+        await fetchTools(nextPageUrl);
+
+        // Add "Load More" button for pagination
+        const loadMoreButton = document.createElement('button');
+        loadMoreButton.textContent = 'Load More';
+        loadMoreButton.className = 'load-more-button'; // Add a class for styling
+        loadMoreButton.addEventListener('click', async () => {
+            if (nextPageUrl) {
+                await fetchTools(nextPageUrl);
+            }
+
+            // Disable the button if no more pages are available
+            if (!nextPageUrl) {
+                loadMoreButton.disabled = true;
+                loadMoreButton.textContent = 'No More Tools';
+            }
         });
+
+        loadNextBtn.appendChild(loadMoreButton);
     } catch (error) {
         console.error('Error loading data:', error);
     }
 });
-
-

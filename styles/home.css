@@ -65,7 +65,7 @@ header{
   width: 100%;
 }
 
-.apply-filter-btn button {
+.apply-filter-btn button .load-more-button {
   padding: 5px;
   font-size: 1vw; /* Responsive font size */
   color: white;
@@ -160,7 +160,7 @@ button {
   align-content: center;
   width: 100%;
 }
-.apply-filter-btn button {
+.apply-filter-btn button .contact-us-btn .load-next-btn {
   font-size: 3vw;
   width: 100%;
   }
@@ -270,4 +270,13 @@ ul li a {
   #h-nav{
       width: 100%;
   }
-}        
+}    
+
+.load-more-button {
+  margin: 20px auto;
+  padding: 10px 20px;
+}
+
+/* .load-more-button:hover {
+  background-color: #1b4687;
+} */
