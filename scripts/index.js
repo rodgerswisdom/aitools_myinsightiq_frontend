@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const cCount = document.getElementById('c_count');
     const count = document.getElementById('count');
 
-    let nextPageUrl = 'https://aitool-detail-service.vercel.app/api/tools/';
+    let nextPageUrl = 'https://aitool-detail-service-one.vercel.app/api/tools/';
     let totalLoadedTools = 0; 
     try {
        
