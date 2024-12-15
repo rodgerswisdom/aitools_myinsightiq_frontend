@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (toolId) {
         try {
-            const response = await fetch(`'https://aitool-detail-service-one.vercel.app/api/tools/'${toolId}`);
+            const response = await fetch(`https://aitool-detail-service-one.vercel.app/api/tools/${toolId}`);
             const toolDetails = await response.json();
 
             document.getElementById('tool-name').textContent = toolDetails.name;
