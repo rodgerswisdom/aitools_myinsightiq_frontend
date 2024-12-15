@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let totalLoadedTools = 0; 
     try {
        
-        const categoryResponse = await fetch('https://category-service-3t5x.onrender.com/api/categories/');
+        const categoryResponse = await fetch('https://aitools-category-service.vercel.app/api/categories/');
         const categories = await categoryResponse.json();
 
         categories.forEach(category => {
