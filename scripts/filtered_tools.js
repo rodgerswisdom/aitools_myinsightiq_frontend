@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     try {
-        const toolResponse = await fetch('https://tool-service.onrender.com/api/tools/');
+        const toolResponse = await fetch('https://aitool-detail-service.vercel.app/api/tools/');
         const tools = await toolResponse.json();
 
         const filteredTools = tools.filter(tool => tool.category_id === parseInt(selectedCategoryId));
